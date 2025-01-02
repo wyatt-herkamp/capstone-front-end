@@ -29,6 +29,30 @@ const DrawerLayout = () => (
         ),
       }}
     />
+    <Drawer.Screen
+      name="edit-records"
+      options={{
+        headerTitle: 'Add / Edit Records',
+        drawerLabel: 'Add / Edit Records',
+        drawerIcon: ({ size, color }) => <Ionicons name="home-outline" size={size} color={color} />,
+      }}
+    />
+    <Drawer.Screen
+      name="calendar"
+      options={{
+        headerTitle: 'Calendar',
+        drawerLabel: 'Calendar',
+        drawerIcon: ({ size, color }) => <Ionicons name="home-outline" size={size} color={color} />,
+      }}
+    />
+    <Drawer.Screen
+      name="record-status"
+      options={{
+        headerTitle: 'Record Status Dashboard',
+        drawerLabel: 'Record Status Dashboard',
+        drawerIcon: ({ size, color }) => <Ionicons name="home-outline" size={size} color={color} />,
+      }}
+    />
   </Drawer>
 );
 
