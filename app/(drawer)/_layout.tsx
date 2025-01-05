@@ -30,10 +30,10 @@ const DrawerLayout = () => (
       }}
     />
     <Drawer.Screen
-      name="edit-records"
+      name="view-patient-info"
       options={{
-        headerTitle: 'Add / Edit Records',
-        drawerLabel: 'Add / Edit Records',
+        headerTitle: 'View Patient Information',
+        drawerLabel: 'View Patient Information',
         drawerIcon: ({ size, color }) => <Ionicons name="home-outline" size={size} color={color} />,
       }}
     />

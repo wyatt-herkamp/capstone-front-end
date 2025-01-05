@@ -1,10 +1,15 @@
-import { View, Text } from 'react-native';
+import { Stack } from 'expo-router';
 
-export default function Records() {
+import { Container } from '~/components/Container';
+import { ScreenContent } from '~/components/ScreenContent';
+
+export default function Calendar() {
   return (
-    <View>
-      <Text>Add Calendar and functionality for it</Text>
-      <Text>They should be able edit appointment times here?</Text>
-    </View>
+    <>
+      <Stack.Screen options={{ title: 'Calendar' }} />
+      <Container>
+        <ScreenContent path="app/(drawer)/calendar.tsx" title="Home" />
+      </Container>
+    </>
   );
 }

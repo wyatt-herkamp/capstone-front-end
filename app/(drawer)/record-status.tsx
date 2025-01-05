@@ -6,9 +6,9 @@ import { ScreenContent } from '~/components/ScreenContent';
 export default function Records() {
   return (
     <>
-      <Stack.Screen options={{ title: 'Tab One' }} />
+      <Stack.Screen options={{ title: 'Record Status' }} />
       <Container>
-        <ScreenContent path="app/(drawer)/(tabs)/index.tsx" title="Tab One" />
+        <ScreenContent path="app/(drawer)/record-status.tsx" title="Tab One" />
       </Container>
     </>
   );
