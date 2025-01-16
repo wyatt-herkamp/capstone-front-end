@@ -20,7 +20,7 @@ export const SessionProvider = ({ children }: { children: React.ReactNode }) => 
       if (storedSession) {
         setSession(storedSession);
       } else {
-        router.replace('../app/login');
+        router.replace('/login');
       }
     };
 
@@ -28,9 +28,10 @@ export const SessionProvider = ({ children }: { children: React.ReactNode }) => 
   }, []);
 
   const logout = async () => {
+    // TODO: Add Logout API call to backend
     await SecureStore.deleteItemAsync('session');
     setSession(null);
-    router.replace('../app/login');
+    router.replace('/login');
   };
 
   return (

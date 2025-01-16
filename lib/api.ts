@@ -2,11 +2,13 @@ const API_URL = process.env.EXPO_PUBLIC_API_URL;
 
 const api = {
   get: async (endpoint: string) => {
-    const response = await fetch(`${API_URL}${endpoint}/`, {
+    const url = appendEndpoint(endpoint);
+    const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
+      credentials: 'include',
     });
     if (!response.ok) {
       throw new Error(`Failed to fetch ${endpoint}, Error: ${response.status}`);
@@ -14,10 +16,12 @@ const api = {
     return await response.json();
   },
   post: async (endpoint: string, data: any) => {
-    const response = await fetch(`${API_URL}${endpoint}`, {
+    const url = appendEndpoint(endpoint);
+    const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
+      credentials: 'include',
     });
     if (!response.ok) {
       throw new Error(`Failed to post ${endpoint}, Error: ${response.status}`);
@@ -27,7 +31,9 @@ const api = {
 
   participants: {
     fetchById: async (id: string) => {
-      return await api.get(`/participants/get/${id}`);
+      const response = await api.get(`/participant/get/${id}`);
+      console.log({ response });
+      return response;
     },
   },
 
@@ -37,5 +43,9 @@ const api = {
     return response;
   },
 };
+
+function appendEndpoint(endpoint: string) {
+  return `${API_URL}${endpoint}`;
+}
 
 export default api;
