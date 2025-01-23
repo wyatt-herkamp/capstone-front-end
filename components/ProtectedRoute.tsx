@@ -23,12 +23,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
     );
   }
 
-  return (
-    <>
-      {children}
-      <LogOutButton />
-    </>
-  );
+  return <>{children}</>;
 };
 
 export default ProtectedRoute;

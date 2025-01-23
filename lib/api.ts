@@ -1,3 +1,5 @@
+import { Participant, RecentVisit } from './types/participant';
+
 const API_URL = process.env.EXPO_PUBLIC_API_URL;
 
 const api = {
@@ -30,15 +32,25 @@ const api = {
   },
 
   participants: {
-    fetchById: async (id: string) => {
+    fetchById: async (id: number) => {
       const response = await api.get(`/participant/get/${id}`);
       console.log({ response });
-      return response;
+      return response as Participant;
+    },
+    getRecentVisits: async (id: number) => {
+      const response = await api.get(`/participant/case_notes/${id}/list/all`);
+      return response as RecentVisit[];
     },
   },
 
+  locations: {
+    fetchAll: async () => {
+      const response = await api.get('/location/all');
+      return response;
+    },
+  },
   login: async (username: string, password: string) => {
-    const response = await api.post('/user/login/password', { username, password });
+    const response = await api.post('/auth/login/password', { username, password });
     console.log({ response });
     return response;
   },

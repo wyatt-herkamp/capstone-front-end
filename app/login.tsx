@@ -15,7 +15,7 @@ const LoginScreen = () => {
   const handleLogin = async () => {
     try {
       const response = await api.login(username, password);
-      const sessionId = response.session.session_id;
+      const sessionId = response.session.session_key;
       if (!sessionId) throw new Error('Invalid login response');
 
       setSession(sessionId);

@@ -25,7 +25,7 @@ export const SessionProvider = ({ children }: { children: React.ReactNode }) => 
     };
 
     loadSession();
-  }, []);
+  });
 
   const logout = async () => {
     // TODO: Add Logout API call to backend
